@@ -19,8 +19,26 @@ public class LoginTests extends BaseTests {
         loginPage.insertPassword("P@$$w0rd");
        DashboardPage dashboardPage = loginPage.clickOnLoginButton();
         Assert.assertTrue(dashboardPage.assertOnLogo().isDisplayed());
+    }
 
+    @Test
+    public void testInvalidUsername(){
+        loginPage.insertUsername("adminxxx");
+        loginPage.insertPassword("P@$$w0rd");
+        loginPage.clickOnLoginButton();
+        String actual = loginPage.getValidationMassage();
+        String expect = "خطأ في إسم المستخدم أو كلمة المرور";
+        assertTrue(actual.contains(expect));
+    }
 
+    @Test
+    public void testInvalidPassword(){
+        loginPage.insertUsername("admin");
+        loginPage.insertPassword("P@$$w0rdxxx");
+        loginPage.clickOnLoginButton();
+        String actual = loginPage.getValidationMassage();
+        String expect = "خطأ في إسم المستخدم أو كلمة المرور";
+        assertTrue(actual.contains(expect));
     }
 
 }

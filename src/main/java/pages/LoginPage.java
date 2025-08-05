@@ -17,6 +17,9 @@ public class LoginPage {
     private final By userNameField = By.xpath("//input[@formcontrolname='username']");
     private final By passwordField = By.xpath("//input[@formcontrolname='password']");
     private final By loginButton = By.xpath("//button[@type='submit']");
+    private final By errorMessage = By.xpath("//strong[contains(text(), 'خطأ في إسم المستخدم')]");
+
+
 
     public void insertUsername(String username){
         wait.until(ExpectedConditions.visibilityOfElementLocated(userNameField));
@@ -29,5 +32,10 @@ public class LoginPage {
     public DashboardPage clickOnLoginButton() {
         driver.findElement(loginButton).click();
         return new DashboardPage(driver);
+    }
+
+    public String getValidationMassage(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage));
+        return driver.findElement(errorMessage).getText();
     }
 }
