@@ -3,10 +3,12 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     WebDriver driver;
+    //Select select;
     WebDriverWait wait;
     public LoginPage (WebDriver driver){
         this.driver  =driver;
@@ -18,6 +20,10 @@ public class LoginPage {
     private final By passwordField = By.xpath("//input[@formcontrolname='password']");
     private final By loginButton = By.xpath("//button[@type='submit']");
     private final By errorMessage = By.xpath("//strong[contains(text(), 'خطأ في إسم المستخدم')]");
+    private final By langDropDownList = By.id("languageDropdown1");
+    private final By enChoice = By.xpath("//a[contains(text(), 'اللغة الانجليزية')]");
+    private final By footer = By.xpath(("//*[@id=\"login-space\"]/div[1]/div[3]/div[3]/p[1]"));
+
 
 
 
@@ -33,9 +39,21 @@ public class LoginPage {
         driver.findElement(loginButton).click();
         return new DashboardPage(driver);
     }
-
     public String getValidationMassage(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage));
         return driver.findElement(errorMessage).getText();
+    }
+    public void clickOnLangDropDownList(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(langDropDownList));
+        driver.findElement(langDropDownList).click();
+    }
+    public void clickOnEnLangChoice(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(enChoice));
+        driver.findElement(enChoice).click();
+    }
+
+    public String getFooterText(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(footer));
+        return driver.findElement(footer).getText();
     }
 }

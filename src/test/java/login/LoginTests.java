@@ -41,4 +41,13 @@ public class LoginTests extends BaseTests {
         assertTrue(actual.contains(expect));
     }
 
+    @Test
+    public void testChangeLang(){
+        loginPage.clickOnLangDropDownList();
+        loginPage.clickOnEnLangChoice();
+        String actual =loginPage.getFooterText();
+        String expect = "Masar system is one of the most important technical ";
+        assertTrue(actual.contains(expect));
+    }
+
 }
