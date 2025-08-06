@@ -22,7 +22,8 @@ public class LoginPage {
     private final By errorMessage = By.xpath("//strong[contains(text(), 'خطأ في إسم المستخدم')]");
     private final By langDropDownList = By.id("languageDropdown1");
     private final By enChoice = By.xpath("//a[contains(text(), 'اللغة الانجليزية')]");
-    private final By footer = By.xpath(("//*[@id=\"login-space\"]/div[1]/div[3]/div[3]/p[1]"));
+    private final By arChoice = By.xpath("//a[contains(text(), ' Arabic Language ')]");
+    private final By info = By.xpath(("//*[@id=\"login-space\"]/div[1]/div[3]/div[3]/p[1]"));
 
 
 
@@ -51,9 +52,13 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(enChoice));
         driver.findElement(enChoice).click();
     }
+    public void clickOnArLangChoice(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(arChoice));
+        driver.findElement(arChoice).click();
+    }
 
-    public String getFooterText(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(footer));
-        return driver.findElement(footer).getText();
+    public String getInfoText(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(info));
+        return driver.findElement(info).getText();
     }
 }
