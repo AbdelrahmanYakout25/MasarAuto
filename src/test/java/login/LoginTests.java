@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTests extends BaseTests {
 
-    @Test
+    @Test(priority = 4)
     public void testvalidUsernameandPassword(){
         loginPage.insertUsername("admin");
         loginPage.insertPassword("P@$$w0rd");
@@ -21,7 +21,7 @@ public class LoginTests extends BaseTests {
         Assert.assertTrue(dashboardPage.assertOnLogo().isDisplayed());
     }
 
-    @Test
+    @Test(priority = 3)
     public void testInvalidUsername(){
         loginPage.insertUsername("adminxxx");
         loginPage.insertPassword("P@$$w0rd");
@@ -31,7 +31,7 @@ public class LoginTests extends BaseTests {
         assertTrue(actual.contains(expect));
     }
 
-    @Test
+    @Test(priority = 2)
     public void testInvalidPassword(){
         loginPage.insertUsername("admin");
         loginPage.insertPassword("P@$$w0rdxxx");
@@ -41,7 +41,7 @@ public class LoginTests extends BaseTests {
         assertTrue(actual.contains(expect));
     }
 
-    @Test
+    @Test(priority = 1)
     public void testChangeLang(){
         loginPage.clickOnLangDropDownList();
         loginPage.clickOnEnLangChoice();
