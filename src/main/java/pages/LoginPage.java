@@ -23,7 +23,7 @@ public class LoginPage {
     private final By langDropDownList = By.id("languageDropdown1");
     private final By enChoice = By.xpath("//a[contains(text(), 'اللغة الانجليزية')]");
     private final By arChoice = By.xpath("//a[contains(text(), ' Arabic Language ')]");
-    private final By info = By.xpath(("//*[@id=\"login-space\"]/div[1]/div[3]/div[3]/p[1]"));
+    private final By info = By.xpath(("//*[@id=\"login-space\"]/div[1]/div[2]/div[3]/p[1]"));
 
 
 
