@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-12T18:10:16 EEST" name="AllTestsSuite" finished-at="2025-08-12T18:10:37 EEST" duration-ms="21176">
+    <groups>
+    </groups>
+    <test started-at="2025-08-12T18:10:16 EEST" name="Automation Test Suite" finished-at="2025-08-12T18:10:37 EEST" duration-ms="21176">
+      <class name="login.LoginTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:16 EEST" name="setUp" finished-at="2025-08-12T18:10:18 EEST" duration-ms="2374" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="goHome()[pri:0, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:18 EEST" name="goHome" finished-at="2025-08-12T18:10:18 EEST" duration-ms="41" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goHome -->
+        <test-method signature="testChangeLang()[pri:1, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:18 EEST" name="testChangeLang" finished-at="2025-08-12T18:10:25 EEST" duration-ms="6961" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testChangeLang -->
+        <test-method is-config="true" signature="goHome()[pri:0, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:25 EEST" name="goHome" finished-at="2025-08-12T18:10:26 EEST" duration-ms="421" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goHome -->
+        <test-method signature="testInvalidPassword()[pri:2, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:26 EEST" name="testInvalidPassword" finished-at="2025-08-12T18:10:27 EEST" duration-ms="1379" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidPassword -->
+        <test-method is-config="true" signature="goHome()[pri:0, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:27 EEST" name="goHome" finished-at="2025-08-12T18:10:28 EEST" duration-ms="504" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goHome -->
+        <test-method signature="testInvalidUsername()[pri:3, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:28 EEST" name="testInvalidUsername" finished-at="2025-08-12T18:10:29 EEST" duration-ms="1326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidUsername -->
+        <test-method is-config="true" signature="goHome()[pri:0, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:29 EEST" name="goHome" finished-at="2025-08-12T18:10:29 EEST" duration-ms="403" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goHome -->
+        <test-method signature="testvalidUsernameandPassword()[pri:4, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:29 EEST" name="testvalidUsernameandPassword" finished-at="2025-08-12T18:10:37 EEST" duration-ms="7226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testvalidUsernameandPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:login.LoginTests@235834f2]" started-at="2025-08-12T18:10:37 EEST" name="tearDown" finished-at="2025-08-12T18:10:37 EEST" duration-ms="463" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- login.LoginTests -->
+    </test> <!-- Automation Test Suite -->
+  </suite> <!-- AllTestsSuite -->
+</testng-results>
