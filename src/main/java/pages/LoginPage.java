@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     WebDriver driver;
-    //Select select;
     WebDriverWait wait;
     public LoginPage (WebDriver driver){
         this.driver  =driver;
