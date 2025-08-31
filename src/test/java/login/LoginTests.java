@@ -18,7 +18,7 @@ public class LoginTests extends BaseTests {
         loginPage.insertUsername("admin");
         loginPage.insertPassword("P@$$w0rd");
         DashboardPage dashboardPage = loginPage.clickOnLoginButton();
-        Assert.assertTrue(dashboardPage.assertOnLogo().isDisplayed());
+        Assert.assertTrue(dashboardPage.assertOnLogo());
     }
 
     @Test(priority = 3)

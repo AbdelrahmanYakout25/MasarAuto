@@ -1,6 +1,7 @@
 package registeration;
 
 import base.BaseTests;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.RegistrationsPage;
@@ -21,9 +22,8 @@ public class RegistrationTests extends BaseTests {
         String subject = "test automation";
         registrationsPage.enterTransactionSubject(subject);
         registrationsPage.clickOnNextButton();
-        Thread.sleep(3000);
-        registrationsPage.clickOnNextButton2();
-        Thread.sleep(3000);
+                Thread.sleep(3000);
+        registrationsPage.clickOnAttachmentNextStepButton();
         registrationsPage.openDropdown();
         registrationsPage.chooseOrg();
         registrationsPage.clickOnDelegationButton();
@@ -31,7 +31,7 @@ public class RegistrationTests extends BaseTests {
         registrationsPage.clickOnGoToDashboardButton();
         dashboardPage.clickOnOutboxTab();
         String actual =dashboardPage.getTransactionNumber();
-        assertTrue(actual.contains(expect));
+        Assert.assertEquals(actual,expect,"not match");
     }
 
 }

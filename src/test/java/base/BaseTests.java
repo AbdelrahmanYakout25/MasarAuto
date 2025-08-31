@@ -21,7 +21,7 @@ public class BaseTests {
     }
     @BeforeMethod
     public void goHome(){
-        driver.get("http://tafeel-srv:44442/");
+        driver.get("http://tafeel-srv:4023/");
     }
     @AfterClass
     public void tearDown(){
