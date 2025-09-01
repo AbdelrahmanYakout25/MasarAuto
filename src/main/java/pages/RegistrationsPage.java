@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,8 +18,9 @@ public class RegistrationsPage {
     private final By secretConfidentialLevel = By.xpath("//div[@class='custom-toggle-wrapper toggleConfidentialNameWrapper']//div[2]//span[1]");
     private final By subjectInput = By.xpath("//textarea[@id='transaction-subject']");
     private final By nextStepButton = By.xpath("//button[@class='next-step btn btn-success ng-star-inserted']");
-    private final By attachmentNextStepButton = By.xpath("//button[@class='next-step btn btn-success ng-star-inserted']/i");
-    private final By dropdownButton =By.xpath("(//div[@class='col-lg-8 col-11']//span[@class='ng-arrow-wrapper'])[1]");
+    private final By attachmentNextStepButton = By.xpath("//button[@class='next-step btn btn-success ng-star-inserted']");
+    // More generic locator for dropdown: any element with 'ng-arrow-wrapper' in its class
+    private final By dropdownButton = By.cssSelector("ng-select[name='selectedDelegateToInternalOrganizations'] span[class='ng-arrow-wrapper']");
     private final By orgChoise = By.xpath("//div[@role='option'][4]");
     private final By delegatonButton = By.xpath("//div[@class='action-btns mb-2 ng-star-inserted']//button[@style='padding: 0 40px']");
     private final By transactionNumber = By.xpath("//p[@class='number']");
@@ -87,8 +87,12 @@ public class RegistrationsPage {
                 .ignoring(StaleElementReferenceException.class);
 
         wait.until(d -> {
-            d.findElement(attachmentNextStepButton).click();
-            return true;
+            WebElement btn = d.findElement(attachmentNextStepButton);
+            if (btn.isDisplayed() && btn.isEnabled()) {
+                btn.click();
+                return true;
+            }
+            return false;
         });
 //        driver.findElement(attachmentNextStepButton).click();
     }

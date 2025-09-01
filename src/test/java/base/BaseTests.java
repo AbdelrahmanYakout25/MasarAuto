@@ -2,6 +2,7 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -15,7 +16,9 @@ public class BaseTests {
 
     @BeforeClass
     public  void setUp (){
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--force-device-scale-factor=0.7");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
     }
