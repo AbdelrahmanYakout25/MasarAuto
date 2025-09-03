@@ -19,12 +19,13 @@ public class RegistrationsPage {
     private final By subjectInput = By.xpath("//textarea[@id='transaction-subject']");
     private final By nextStepButton = By.xpath("//button[@class='next-step btn btn-success ng-star-inserted']");
     private final By attachmentNextStepButton = By.xpath("//button[@class='next-step btn btn-success ng-star-inserted']");
-    // More generic locator for dropdown: any element with 'ng-arrow-wrapper' in its class
-    private final By dropdownButton = By.cssSelector("ng-select[name='selectedDelegateToInternalOrganizations'] span[class='ng-arrow-wrapper']");
+    private final By dropdownButton = By.xpath("//ng-select[@name='selectedDelegateToInternalOrganizations'] //span[@class='ng-arrow-wrapper']");
     private final By orgChoise = By.xpath("//div[@role='option'][4]");
     private final By delegatonButton = By.xpath("//div[@class='action-btns mb-2 ng-star-inserted']//button[@style='padding: 0 40px']");
     private final By transactionNumber = By.xpath("//p[@class='number']");
     private final By masarLogo = By.xpath("//img[@alt='Masar Icon']");
+    private final By uploadButton = By.xpath("(//input[@id='uploadFileInput'])[1]");
+    private final By attachementFirestPage= By.xpath("//div[@id='rotated-att-img-id']//img");
 
 
     public void clickOnSecretConfidentialLevel(){
@@ -157,6 +158,33 @@ public class RegistrationsPage {
         });
         return driver.findElement(transactionNumber).getText();
     }
+    public void uploadFile(String filePath) {
+        wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofMillis(300))
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(NoSuchElementException.class)
+                .ignoring(StaleElementReferenceException.class);
+
+        wait.until(d -> {
+            d.findElement(uploadButton);
+            return true;
+        });
+        driver.findElement(uploadButton).sendKeys(filePath);
+    }
+    public void getAttachementFirestPage() {
+        wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofMillis(300))
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(NoSuchElementException.class)
+                .ignoring(StaleElementReferenceException.class);
+
+        wait.until(d -> {
+            d.findElement(attachementFirestPage);
+            return true;
+        });
+    }
     public DashboardPage clickOnGoToDashboardButton(){
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(goToDashboardButton));
 //        driver.findElement(goToDashboardButton).click();
@@ -173,10 +201,5 @@ public class RegistrationsPage {
         });
         return new DashboardPage(driver);
     }
-
-
-
-
-
 
 }
