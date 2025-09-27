@@ -26,6 +26,23 @@ public class LoginPage {
 
 
     public void insertUsername(String username){
+//        //other way to wait for explicit wait
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(d ->{
+//            WebElement element = d.findElement(userNameField);
+//            return element.isDisplayed() && element.isEnabled();
+//        });
+//        driver.findElement(userNameField).sendKeys(username);
+//        //end other way to wait
+//
+//        //default way to wait for explicit wait
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(d -> d.findElement(userNameField).isDisplayed());
+//        driver.findElement(userNameField).sendKeys(username);
+//        //end default way to wait
+//
+//
+//        //fluent wait way
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofMillis(300))
